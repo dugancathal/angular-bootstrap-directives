@@ -28,36 +28,36 @@
     <div class='row'>
       <form class='form-horizontal'>
         <div class='form-group'>
-          <label class='control-label col-sm-3 pull-left'>Value of text field is: {{item}}</label>
-          <div class='col-sm-3'>
+          <label class='control-label col-sm-4 pull-left'>Value of text field is: {{item}}</label>
+          <div class='col-sm-4'>
             <text-field model='item' input-id='text-field' input-label='My Text Label'></text-field>
           </div>
         </div>
 
         <div class='form-group'>
-          <label class='control-label col-sm-3 pull-left'>Value of password field is: {{password}}</label>
-          <div class='col-sm-3'>
+          <label class='control-label col-sm-4 pull-left'>Value of password field is: {{password}}</label>
+          <div class='col-sm-4'>
             <password-field model='password' input-id='password-field' input-label='My Password Label'></password-field>
           </div>
         </div>
 
         <div class='form-group'>
-          <label class='control-label col-sm-3 pull-left'>Value of email field is: {{email}}</label>
-          <div class='col-sm-3'>
-            <email-field model='email' input-id='email-field' input-label='My Email Label'></email-field>
+          <label class='control-label col-sm-4 pull-left'>Value of required email field is: {{email}}</label>
+          <div class='col-sm-4'>
+            <email-field required='true' model='email' input-id='email-field' input-label='My Email Label'></email-field>
           </div>
         </div>
 
         <div class='form-group'>
-          <label class='control-label col-sm-3 pull-left'>Value of tel field is: {{tel}}</label>
-          <div class='col-sm-3'>
-            <tel-field model='tel' input-id='tel-field' input-label='My Telephone Label'></tel-field>
+          <label class='control-label col-sm-4 pull-left'>Value of required tel field is: {{tel}}</label>
+          <div class='col-sm-4'>
+            <tel-field required='true' model='tel' input-id='tel-field' input-label='My Telephone Label'></tel-field>
           </div>
         </div>
 
         <div class='form-group'>
-          <label class='control-label col-sm-3 pull-left'>Am I Busy?: {{isBusy}}</label>
-          <div class='col-sm-3'>
+          <label class='control-label col-sm-4 pull-left'>Am I Busy?: {{isBusy}}</label>
+          <div class='col-sm-4'>
             <checkbox-field model='isBusy' input-id='checkbox-field' input-label='Am I Busy?'></checkbox-field>
           </div>
         </div>

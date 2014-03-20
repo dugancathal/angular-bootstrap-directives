@@ -4,13 +4,21 @@ describe('Text Field Directives', function () {
       var element, $scope;
 
       beforeEach(module('ui.bootstrap.forms'));
-      beforeEach(inject(function($rootScope, $compile) {
+      beforeEach(inject(function($rootScope) {
         $scope = $rootScope.$new();
 
         var tmpl = '<' + type + '-field model="item" input-id="input_id" input-label="Input Label"></' + type + '-field>';
-        element = $compile(tmpl)($scope);
-        $scope.$digest();
+        element = compileTemplate(tmpl, $scope);
       }));
+
+      var compileTemplate = function compileTemplate(template, scope) {
+        var el;
+        inject(function($compile) {
+          el = $compile(template)(scope);
+        });
+        scope.$digest();
+        return el;
+      }
 
       it('renders a form-group', function () {
         expect(element.contents().hasClass('form-group')).toBeTruthy();
@@ -33,6 +41,15 @@ describe('Text Field Directives', function () {
         expect(inputs[0].id).toEqual('input_id');
         expect(inputs[0].type).toEqual(type);
         expect(inputs[0].value).toEqual(attemptedValue);
+      });
+
+      it('renders an abbr * tag for required fields', function () {
+        expect(element.find('abbr').hasClass('ng-hide')).toBeTruthy();
+
+        tmpl = '<' + type + '-field model="item" required="true" input-id="input_id" input-label="Input Label"></' + type + '-field>';
+        element = compileTemplate(tmpl, $scope);
+
+        expect(element.find('abbr').hasClass('ng-hide')).toBeFalsy();
       });
     });
   };
